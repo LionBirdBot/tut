@@ -7,6 +7,9 @@ const identity{
     Occupation: "Health provider",
     hobbies  :["photography","swimming","chasing girls"],
 };
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+
 ---
 
 <html lang="en">
@@ -20,6 +23,17 @@ const identity{
 	<body>
         <a href="/">Home</a>
 		<h1>{pageTitle}</h1>
-        <p>  ... I am an aspiring new creator </p>
+        <p>Here are a few facts about me:</p>
+        <ul>
+          <li>My name is {identity.firstName}.</li>
+          <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+          {identity.hobbies.length >= 2 &&
+            <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
+          }
+        </ul>
+        <p>My skills are:</p>
+        <ul>
+          {skills.map((skill) => <li>{skill}</li>)}
+        </ul>
 	</body>
 </html>
